@@ -29,9 +29,10 @@
     font-size: 2.0rem;
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:572px){
     .header{
         justify-content: center;
+        
     }
     section .informacoes{
         width: 100%;
@@ -45,8 +46,10 @@
         height: 50%;
         margin: 0 0 0 70px;
     }
- 
-}
+    #titulo{
+        font-size: 3.2rem;
+    }
+}   
 
 section{
     display: grid;

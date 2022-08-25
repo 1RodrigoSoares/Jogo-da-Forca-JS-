@@ -116,7 +116,7 @@ body{
     }
     #tecladoTP{
         width: 99%;
-        height: 118px;
+        height: 180px;
     }
     #telaTP{
         width: 99%;
@@ -133,6 +133,5 @@ body{
     }
     #tecladoTP{
         width: 99%;
-        height: 250px;
     }
 }

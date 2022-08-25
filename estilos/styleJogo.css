@@ -86,10 +86,24 @@ body{
 }
 
 @media screen and (max-width:1082px){
-    #botaoDica{
-        width: 100px;
+    #botaoVoltar,#botaoReiniciar{
+        width: 200px;
+        height: 70px;
+    } 
+}
+
+@media screen and (max-width:888px){
+    #telaTP{
+        margin-top: 1px;
     }
-    
+    #botaoDica{
+        width: 90px;
+        height: 40px;
+    }
+    #botaoVoltar,#botaoReiniciar{
+        width: 90px;
+        height: 40px;
+    } 
 }
 
 @media screen and (max-width:635px){
@@ -108,15 +122,6 @@ body{
         width: 99%;
         margin: 2px;
     }
-    #botaoDica{
-        width: 90px;
-        height: 40px;
-    }
-    #botaoVoltar,#botaoReiniciar{
-        width: 90px;
-        height: 40px;
-    }
-
 }
 
 @media screen and (max-width:340px){
@@ -128,6 +133,6 @@ body{
     }
     #tecladoTP{
         width: 99%;
-        height: 125px;
+        height: 250px;
     }
 }

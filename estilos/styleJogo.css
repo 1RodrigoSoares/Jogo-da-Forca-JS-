@@ -48,3 +48,34 @@ body{
         font-size: 2rem;
     }
 }
+
+#botaoVoltar,#botaoReiniciar{
+    width: 100px;
+    height: 70px;
+}
+
+#botaoDica{
+    width: 200px;
+    height: 70px;
+}
+.tela{
+    width: 600px;
+    height: 200px;
+    margin: 20px 0 20px 90px;
+    border: 2px black solid;
+    background-color: white;
+}
+
+.teclado{
+    height: 100px;
+    border: rgb(128, 0, 0) solid 2px;
+    background-color: black;
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.jogo{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}

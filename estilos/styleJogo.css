@@ -49,13 +49,15 @@ body{
 
 
 #botaoVoltar,#botaoReiniciar{
-    width: 100px;
+    width: 98px;
     height: 70px;
+    margin: 2px;
 }
 
 #botaoDica{
-    width: 200px;
+    width: 202px;
     height: 70px;
+    margin: 2px;
 }
 .tela{
     width: 600px;
@@ -87,7 +89,7 @@ body{
         margin: 4px;
     } 
     #telaTP{
-        width: 100%;
+        width: 99%;
         margin: 2px 0 2px 0;
     }
     #botoesTP{
@@ -115,6 +117,26 @@ body{
 }
 
 @media screen and (max-width:709px){
+    .jogo{
+        grid-template-columns: 1fr 3fr;
+    }
+    #telaTP{
+        width: 500px;
+        margin: 2px;
+    }
+    #tecladoTP{
+        width: 500px;
+    }
+}
+
+@media screen and (max-width:635px){
+    .header{
+        justify-content: center;
+        
+    }
+    h1{
+        font-size: 2rem;
+    }  
     #jogoTP{
         display: flex;
         flex-direction: column;
@@ -129,19 +151,8 @@ body{
     #tecladoTP{
         width: 99%;
     }
-}
-
-@media screen and (max-width:635px){
-    .header{
-        justify-content: center;
-        
-    }
-    h1{
-        font-size: 2rem;
-    }
     #telaTP{
         width: 99%;
-        margin: 2px;
     }
 }
 

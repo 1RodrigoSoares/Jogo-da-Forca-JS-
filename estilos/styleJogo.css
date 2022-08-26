@@ -98,7 +98,6 @@ body{
         justify-content: center;
         align-items: center;
     }
-    
 }
 
 @media screen and (max-width:888px){
@@ -113,6 +112,9 @@ body{
         width: 90px;
         height: 40px;
     } 
+    .jogo{
+        grid-template-rows: 1fr 108px;
+    }
     
 }
 

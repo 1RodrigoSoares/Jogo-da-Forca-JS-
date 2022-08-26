@@ -34,14 +34,9 @@ body{
 }
 
 @media screen and (max-width:900px){
-    #jogoTP{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
     #botoesTP{
         height: 100%;
-        margin: 10px 0 0 0;
+        margin: 2px 0 0 0;
     }
     #telaTP{
         margin: 20px;
@@ -86,10 +81,22 @@ body{
 }
 
 @media screen and (max-width:1082px){
-    #botaoVoltar,#botaoReiniciar{
-        width: 200px;
-        height: 70px;
+    #botaoVoltar,#botaoReiniciar,#botaoDica{
+        width: 100px;
+        height: 40px;
+        margin: 4px;
     } 
+    #telaTP{
+        width: 100%;
+        margin: 2px 0 2px 0;
+    }
+    #botoesTP{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
 }
 
 @media screen and (max-width:888px){
@@ -104,6 +111,24 @@ body{
         width: 90px;
         height: 40px;
     } 
+    
+}
+
+@media screen and (max-width:709px){
+    #jogoTP{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #botoesTP{
+        flex-direction: row;
+    }
+    #botaoVoltar,#botaoReiniciar,#botaoDica{
+        margin: 2px 2px;
+    } 
+    #tecladoTP{
+        width: 99%;
+    }
 }
 
 @media screen and (max-width:635px){
@@ -113,10 +138,6 @@ body{
     }
     h1{
         font-size: 2rem;
-    }
-    #tecladoTP{
-        width: 99%;
-        height: 180px;
     }
     #telaTP{
         width: 99%;
@@ -131,7 +152,9 @@ body{
     #telaTP{
         margin: 2px;
     }
-    #tecladoTP{
-        width: 99%;
-    }
+    #botaoVoltar,#botaoReiniciar,#botaoDica{
+        width: 90px;
+        height: 20px;
+        margin: 4px;
+    } 
 }

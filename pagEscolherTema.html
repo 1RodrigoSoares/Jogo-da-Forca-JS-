@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="game.js"></script>
+    <link rel="stylesheet" href="estilos/styleEscolherTema.css">
+    <title>Jogo da Forca</title>
+</head>
+<body>
+    <header>
+        <h1>PAGINA DE ESCOLHER O TEMA</h1>
+    </header>
+    <section>
+        <article>
+            <a href="index.html" rel="prev"><button>VOLTAR</button></a>
+        </article>
+        <article>
+            <form action="pagJogo.html">
+                <label>ESCOLHA O TEMA</label><br>
+                <select id="temas" onchange="atualizaSelect()">
+                    <option value="aleatorio">TEMAS</option>
+                    <option value="frutas">Frutas</option>
+                    <option value="profissoes">Profissões</option>
+                    <option value="filmes">Filmes</option>
+                </select>
+                <button id="botaoJogar" type="submit">JOGAR</button></a>
+            </form>
+        </article>
+        <article>
+            <h1>IMAGENS DO TEMA SELECIONADO</h1>
+        </article>
+    </section>
+</body>
+</html>

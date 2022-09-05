@@ -342,6 +342,13 @@ function verificaLetraEscolhida(letra){
         acendeLetraErradas(letra);
         ajustaBoneco();
     }
+    desabilitaBotao(letra);
+}
+
+function desabilitaBotao(letra){
+    const letraMaiuscula = letra.toUpperCase();
+    const botao = document.querySelector(`#botao${letraMaiuscula}`);
+    botao.disabled = true;
 }
 
 const verificaSeGanhou = setInterval(function(){

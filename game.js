@@ -15,6 +15,7 @@ const listaFilmes = [
 
 
 
+
 //TODA VEZ QUE MUDA A CAIXINHA DE SELEÇÃO DE TEMAS ELE ATUALIZA PARA PEGAR O VALOR ESCOLHIDO
 function atualizaSelect(){
     const listaTemas = document.querySelector("#temas");
@@ -57,3 +58,20 @@ function sorteiaPalavra(){
     return objPalavraSelecionada;
 }
 
+
+const oPalavraSelecionada = sorteiaPalavra(); //constante usada para pegar e guardar a palavra sorteada
+
+function acenderTracosCertos(){
+    const qtdLetrasPalavra = oPalavraSelecionada.palavra.length;
+    const qtdParaPular = (14 - qtdLetrasPalavra) / 2; //Serve para pular a qtd de letras na hr de acender
+
+    for(let i = qtdParaPular; i < qtdLetrasPalavra+qtdParaPular ; i++){
+        const letraApagada = document.querySelector(`#letra${i+1}`);
+        letraApagada.style.opacity = 100;
+    }
+}
+
+function jogo(){
+    acenderTracosCertos();
+
+}

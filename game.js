@@ -14,6 +14,7 @@ const listaFilmes = [
 
 const oPalavraSelecionada = sorteiaPalavra(); //constante usada para pegar e guardar a palavra sorteada
 let letrasAcertadas = 0;
+let letrasErradas = 0; 
 
 const eBotaoA = document.querySelector("#botaoA");
 const eBotaoB = document.querySelector("#botaoB");
@@ -290,8 +291,32 @@ function acendeLetra(letras)
     verificaSeGanhou;
 }
 
+//Ajusta a exibição do boneco de acordo com a quantidade de letras erradas
 function ajustaBoneco(){
-    console.log("NÃO TEM ESSA LETRA");
+    letrasErradas++;
+    const espacoForca = document.querySelector("#imgBonecoJogo");
+    if(letrasErradas == 1)
+    {
+        espacoForca.src = "/img/hangman(cabeça).png";
+    }else if(letrasErradas == 2)
+    {
+        espacoForca.src = "/img/hangman(cabeça+corpo).png";
+    }else if(letrasErradas == 3)
+    {
+        espacoForca.src = "/img/hangman(cabeça+corpo+1braco).png";
+    }else if(letrasErradas == 4)
+    {
+        espacoForca.src = "/img/hangman(cabeça+corpo+doisbracos).png";
+    }else if(letrasErradas == 5)
+    {
+        espacoForca.src = "/img/hangman(quasecompleto).png";
+    }else if(letrasErradas == 6)
+    {
+        espacoForca.src = "/img/hangman(completo).png";
+    }else
+    {
+        espacoForca.src = "/img/hangman(morto).png";
+    }
 }
 
 function verificaLetraEscolhida(letra){
@@ -305,7 +330,6 @@ function verificaLetraEscolhida(letra){
             break;
         }
     }
-
     if(achou)
     {
         acendeLetra(letrasEsc);
@@ -314,18 +338,14 @@ function verificaLetraEscolhida(letra){
     }
 }
 
-// function verificaSeGanhou()
-// {
-//     if(letrasAcertadas == oPalavraSelecionada.palavra.length)
-//     {
-//         alert("PARABENS VOCÊ GANHOU");
-//     }
-// }
-
 const verificaSeGanhou = setInterval(function(){
     if(letrasAcertadas == oPalavraSelecionada.palavra.length)
     {
         alert("PARABENS VOCÊ GANHOU");
+    }
+    else if(letrasErradas == 7)
+    {
+        alert("PERDEU!")
     }
 },1000);
 

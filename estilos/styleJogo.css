@@ -34,6 +34,11 @@
     width: 40px;
 }
 
+.imgBonecoJogo{
+    width: 30%;
+    height: 100%;
+}
+
 body{
     background-color: #f4dbc1;
 }

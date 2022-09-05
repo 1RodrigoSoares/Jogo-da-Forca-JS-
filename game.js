@@ -1,10 +1,10 @@
 const listaFrutas = [
-    {palavra: "mxçã", dica: "É vermelha e faz croc quando morde"},
+    {palavra: "Maçã", dica: "É vermelha e faz croc quando morde"},
 ]
 
 const listaProficoes = [
-    {palavra: "médico", dica: "Ajudam aqueles que mais precisam"},
-    {palavra: "bombeiro", dica: "Estão em calendários"},
+    {palavra: "Médico", dica: "Ajudam aqueles que mais precisam"},
+    {palavra: "Bombeiro", dica: "Estão em calendários"},
 ]
 
 const listaFilmes = [
@@ -193,12 +193,45 @@ function sorteiaPalavra(){
 
 function acenderTracosCertos(){
     const qtdLetrasPalavra = oPalavraSelecionada.palavra.length;
-    const qtdParaPular = (14 - qtdLetrasPalavra) / 2; //Serve para pular a qtd de letras na hr de acender
+    const qtdParaPular = Math.ceil((14 - qtdLetrasPalavra) / 2); //Serve para pular a qtd de letras na hr de acender
+    let espacos = [];
+    let temEspacos = false;
+    let ind = 0;
 
-    for(let i = qtdParaPular; i < qtdLetrasPalavra+qtdParaPular ; i++){
-        const letraApagada = document.querySelector(`#letra${i+1}`);
-        letraApagada.style.opacity = 100;
+    for(let i = 0; i < qtdLetrasPalavra; i++)
+    {
+        if(oPalavraSelecionada.palavra[i] == " ")
+        {
+            temEspacos = true;
+            espacos[ind] = i;
+            ind++;
+        }
     }
+
+    if(temEspacos)
+    {
+        for(let i = qtdParaPular; i < qtdLetrasPalavra+qtdParaPular ; i++)
+        {
+            for(let j = 0; j < espacos.length; j++)
+            {
+                const t = espacos[j];
+                const x = t + qtdParaPular;
+                if(i != x)
+                {
+                    const letraApagada = document.querySelector(`#letra${i+1}`);
+                    letraApagada.style.opacity = 100;
+                }
+            }   
+        }
+    }else
+    {
+        for(let i = qtdParaPular; i < qtdLetrasPalavra+qtdParaPular ; i++)
+        {
+            const letraApagada = document.querySelector(`#letra${i+1}`);
+            letraApagada.style.opacity = 100;
+        }
+    }
+    
 }
 
 function ajustaLetraEscolhida(letra){
@@ -222,28 +255,55 @@ function ajustaLetraEscolhida(letra){
     return letrasDiferentes;
 }
 
-function acendeLetra(){
-    console.log("TEM ESSA LETRA");
+function encontraIndices(letras){
+    let posicoesMudar = [];
+    let indice = 0;
+    for(let i = 0; i < oPalavraSelecionada.palavra.length; i++)
+    {
+        for(let j = 0; j < letras.length; j++)
+        {
+            if(oPalavraSelecionada.palavra[i] == letras[j] || oPalavraSelecionada.palavra[i] == letras[j].toUpperCase())
+            {
+                posicoesMudar[indice] = i;
+                indice++;
+        }   }     
+    }
+    return posicoesMudar;
 }
+
+function acendeLetra(letras)
+{
+    const qtdLetrasPalavra = oPalavraSelecionada.palavra.length;
+    const qtdParaPular = Math.ceil((14 - qtdLetrasPalavra) / 2);
+    const indices = encontraIndices(letras);
+    for(let i = 0; i < indices.length; i++)
+    {
+        const letraAcender = document.querySelector(`#letra${indices[i] + qtdParaPular+1} `);
+        letraAcender.textContent = oPalavraSelecionada.palavra[indices[i]];
+    }
+}
+
 
 function ajustaBoneco(){
     console.log("NÃO TEM ESSA LETRA");
 }
 
 function verificaLetraEscolhida(letra){
-    let varia = 0
+    let achou = false;
     const letrasEsc = ajustaLetraEscolhida(letra)
     for(let i = 0; i < letrasEsc.length; i++)
     {
         if(oPalavraSelecionada.palavra.includes(letrasEsc[i]) || oPalavraSelecionada.palavra.includes(letrasEsc[i].toUpperCase()))
         {
-            acendeLetra();
-            varia++;
+            achou = true;
             break;
         }
     }
-    if(varia<1)
+
+    if(achou)
     {
+        acendeLetra(letrasEsc);
+    }else{
         ajustaBoneco();
     }
 }
@@ -251,5 +311,6 @@ function verificaLetraEscolhida(letra){
 
 function jogo(){
     acenderTracosCertos();
-
 }
+
+jogo();

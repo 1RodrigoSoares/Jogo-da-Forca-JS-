@@ -276,7 +276,6 @@ function encontraIndices(letras){
     return posicoesMudar;
 }
 
-
 function acendeLetra(letras)
 {
     const qtdLetrasPalavra = oPalavraSelecionada.palavra.length;
@@ -291,9 +290,14 @@ function acendeLetra(letras)
     verificaSeGanhou;
 }
 
+function acendeLetraErradas(letra)
+{
+    const letraErrada = document.querySelector(`#letra${letrasErradas+14}`);
+    letraErrada.textContent = letra.toUpperCase();
+}
+
 //Ajusta a exibição do boneco de acordo com a quantidade de letras erradas
 function ajustaBoneco(){
-    letrasErradas++;
     const espacoForca = document.querySelector("#imgBonecoJogo");
     if(letrasErradas == 1)
     {
@@ -334,6 +338,8 @@ function verificaLetraEscolhida(letra){
     {
         acendeLetra(letrasEsc);
     }else{
+        letrasErradas++;
+        acendeLetraErradas(letra);
         ajustaBoneco();
     }
 }

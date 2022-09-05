@@ -114,6 +114,13 @@ body{
     opacity: 0;
 }
 
+.letrasErradas{
+    grid-row: 2;
+    font-size: 1.3rem;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 4px;
+}
+
 
 @media screen and (max-width:1082px){
     #botaoVoltar,#botaoReiniciar,#botaoDica{

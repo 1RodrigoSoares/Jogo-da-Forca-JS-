@@ -13,7 +13,7 @@ const listaFilmes = [
 ]
 
 const oPalavraSelecionada = sorteiaPalavra(); //constante usada para pegar e guardar a palavra sorteada
-
+let letrasAcertadas = 0;
 
 const eBotaoA = document.querySelector("#botaoA");
 const eBotaoB = document.querySelector("#botaoB");
@@ -191,6 +191,7 @@ function sorteiaPalavra(){
     return objPalavraSelecionada;
 }
 
+//Funcao que poe os palitos na tela que representam cada letra da palavra
 function acenderTracosCertos(){
     const qtdLetrasPalavra = oPalavraSelecionada.palavra.length;
     const qtdParaPular = Math.ceil((14 - qtdLetrasPalavra) / 2); //Serve para pular a qtd de letras na hr de acender
@@ -198,6 +199,7 @@ function acenderTracosCertos(){
     let temEspacos = false;
     let ind = 0;
 
+    //For que localiza os indices que possuem espaço(Se possuirem)
     for(let i = 0; i < qtdLetrasPalavra; i++)
     {
         if(oPalavraSelecionada.palavra[i] == " ")
@@ -234,6 +236,7 @@ function acenderTracosCertos(){
     
 }
 
+//Funcao que serve para resolver problema com caracteres acentuados e diferentes(ç)
 function ajustaLetraEscolhida(letra){
     let letrasDiferentes = [];
     if(letra == "c")
@@ -255,6 +258,7 @@ function ajustaLetraEscolhida(letra){
     return letrasDiferentes;
 }
 
+//Encontra indice das letras que precisam ser "acendidas" na palavra
 function encontraIndices(letras){
     let posicoesMudar = [];
     let indice = 0;
@@ -271,6 +275,7 @@ function encontraIndices(letras){
     return posicoesMudar;
 }
 
+
 function acendeLetra(letras)
 {
     const qtdLetrasPalavra = oPalavraSelecionada.palavra.length;
@@ -280,9 +285,10 @@ function acendeLetra(letras)
     {
         const letraAcender = document.querySelector(`#letra${indices[i] + qtdParaPular+1} `);
         letraAcender.textContent = oPalavraSelecionada.palavra[indices[i]];
+        letrasAcertadas++;
     }
+    verificaSeGanhou;
 }
-
 
 function ajustaBoneco(){
     console.log("NÃO TEM ESSA LETRA");
@@ -307,6 +313,21 @@ function verificaLetraEscolhida(letra){
         ajustaBoneco();
     }
 }
+
+// function verificaSeGanhou()
+// {
+//     if(letrasAcertadas == oPalavraSelecionada.palavra.length)
+//     {
+//         alert("PARABENS VOCÊ GANHOU");
+//     }
+// }
+
+const verificaSeGanhou = setInterval(function(){
+    if(letrasAcertadas == oPalavraSelecionada.palavra.length)
+    {
+        alert("PARABENS VOCÊ GANHOU");
+    }
+},1000);
 
 
 function jogo(){

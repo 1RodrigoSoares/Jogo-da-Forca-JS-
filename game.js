@@ -208,6 +208,7 @@ function acenderTracosCertos(){
             temEspacos = true;
             espacos[ind] = i;
             ind++;
+            letrasAcertadas++; //INCREMENTO POIS NA HR DE GANHAR O JOGO ESTÁ FALTANDO OS ESPAÇOS NO CONTADOR
         }
     }
 

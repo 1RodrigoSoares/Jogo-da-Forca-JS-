@@ -302,25 +302,25 @@ function ajustaBoneco(){
     const espacoForca = document.querySelector("#imgBonecoJogo");
     if(letrasErradas == 1)
     {
-        espacoForca.src = "../imagem/hangman(cabeça).png";
+        espacoForca.src = "./imagem/hangman(cabeça).png";
     }else if(letrasErradas == 2)
     {
-        espacoForca.src = "..//imagem/hangman(cabeça+corpo).png";
+        espacoForca.src = "./imagem/hangman(cabeça+corpo).png";
     }else if(letrasErradas == 3)
     {
-        espacoForca.src = "..//imagem/hangman(cabeça+corpo+1braco).png";
+        espacoForca.src = "./imagem/hangman(cabeça+corpo+1braco).png";
     }else if(letrasErradas == 4)
     {
-        espacoForca.src = "..//imagem/hangman(cabeça+corpo+doisbracos).png";
+        espacoForca.src = "./imagem/hangman(cabeça+corpo+doisbracos).png";
     }else if(letrasErradas == 5)
     {
-        espacoForca.src = "..//imagem/hangman(quasecompleto).png";
+        espacoForca.src = "./imagem/hangman(quasecompleto).png";
     }else if(letrasErradas == 6)
     {
-        espacoForca.src = "..//imagem/hangman(completo).png";
+        espacoForca.src = "./imagem/hangman(completo).png";
     }else
     {
-        espacoForca.src = "..//imagem/hangman(morto).png";
+        espacoForca.src = "./imagem/hangman(morto).png";
     }
 }
 

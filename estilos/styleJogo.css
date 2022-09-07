@@ -11,7 +11,7 @@
     color: white;
     padding: 10px;
     text-decoration:none;
-    background-color: coral;
+    background-color: rgb(255, 94, 0);
     border-radius: 3px;
 }
 
@@ -121,6 +121,84 @@ body{
     padding: 4px;
 }
 
+.mensagem{
+    width: 280px;
+    height: 100px;
+    border: rgb(255, 94, 0) solid 1px;
+    background-color: rgb(255, 94, 0);
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 76px; 
+    border-radius: 25px;  
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.conteudo h1{
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.conteudo p{
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.mensagem::before{
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    bottom: -12px;
+    border-radius: 5px;
+    transform: rotate(45deg);
+}
+
+.botaoFechar{
+    position: absolute;
+    min-width: 40px;
+    height: 40px;
+    background-color: rgb(255, 94, 0);
+    bottom: -70px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border: black solid 2px;
+}
+
+
+.botaoFechar:hover{
+    transition: 0.5s;
+    background-color: rgb(255, 0, 0);
+}
+
+.botaoFechar::before{
+    content: '+';
+    font-size: 2.5em;
+    color: black;
+    transition: 0.5s;
+    transform: rotate(135deg);
+}
+
+.botaoFechar:hover::before{
+    color: white;
+    transition: 0.5s;
+}
+
 
 @media screen and (max-width:1082px){
     #botaoVoltar,#botaoReiniciar,#botaoDica{
@@ -137,6 +215,10 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .mensagem{
+        margin-left: 40%;
+        margin-top: 56px; 
     }
 }
 
@@ -155,7 +237,7 @@ body{
     .jogo{
         grid-template-rows: 1fr 108px;
     }
-    
+
 }
 
 @media screen and (max-width:709px){
@@ -168,6 +250,9 @@ body{
     }
     #tecladoTP{
         width: 500px;
+    }
+    .mensagem{
+        margin-left: 54%;
     }
 }
 
@@ -196,6 +281,12 @@ body{
     #telaTP{
         width: 99%;
     }
+    .mensagem{
+        height: 140px;
+        width: 270px;
+        margin-left: 15%;
+        margin-top: 80px;
+    }
 }
 
 @media screen and (max-width:340px){
@@ -210,4 +301,19 @@ body{
         height: 20px;
         margin: 4px;
     } 
+    .mensagem{
+        width: 212px;
+        height: 85px;
+        margin-top: 71px;
+        margin-left: 25%;
+    }
+    .conteudo h1{
+        font-size: 1.2rem;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    
+    .conteudo p{
+        padding: 5px;
+        font-size: 1.0rem;
+    }
 }

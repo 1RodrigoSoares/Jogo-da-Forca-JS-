@@ -352,6 +352,30 @@ function desabilitaBotao(letra){
     botao.disabled = true;
 }
 
+const botaoDica = document.querySelector("#botaoDica");
+const mensagem = document.querySelector(".mensagem");
+const conteudo = document.querySelector(".conteudo");
+
+botaoDica.addEventListener("click", function(){
+    const titulo = document.createElement("h1");
+    const mensagemConteudo = document.createElement("p");
+
+    titulo.textContent = "DICA";
+    mensagemConteudo.textContent = `${oPalavraSelecionada.dica}`;
+
+    conteudo.appendChild(titulo);
+    conteudo.appendChild(mensagemConteudo);
+
+    mensagem.style.display = "flex";
+});
+
+const botaoFechar = document.querySelector(".botaoFechar");
+botaoFechar.onclick = function(){
+    mensagem.style.display = "none";
+    conteudo.textContent = " ";
+};
+
+
 const verificaSeGanhou = setInterval(function(){
     if(letrasAcertadas == oPalavraSelecionada.palavra.length)
     {

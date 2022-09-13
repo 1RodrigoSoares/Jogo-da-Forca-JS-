@@ -358,6 +358,13 @@ const botaoDica = document.querySelector("#botaoDica");
 const mensagem = document.querySelector(".mensagem");
 const conteudo = document.querySelector(".conteudo");
 
+const botaoFim = document.querySelector(".botaoFim");
+botaoFim.onclick = function(){
+    location.reload();
+};
+const mensagemFim = document.querySelector(".mensagemFim");
+const conteudo2 = document.querySelector(".conteudo2");
+
 
 botaoDica.addEventListener("click", function(){
     if(letrasErradas == 3)
@@ -372,6 +379,7 @@ botaoDica.addEventListener("click", function(){
         conteudo.appendChild(mensagemConteudo);
 
         mensagem.style.display = "flex";
+        botaoDica.disabled = true;
     }
     else{
         const titulo = document.createElement("h1");
@@ -388,6 +396,7 @@ botaoDica.addEventListener("click", function(){
         conteudo.appendChild(mensagemConteudo);
 
         mensagem.style.display = "flex";
+        botaoDica.disabled = true;
     }
 });
 
@@ -395,25 +404,52 @@ const botaoFechar = document.querySelector(".botaoFechar");
 botaoFechar.onclick = function(){
     mensagem.style.display = "none";
     conteudo.textContent = " ";
+    botaoDica.disabled = false;
 };
-
 
 const verificaSeGanhou = setInterval(function(){
     if(letrasAcertadas == oPalavraSelecionada.palavra.length)
     {
-        alert("PARABENS VOCÊ GANHOU");
+        ganhou();
     }
     else if(letrasErradas == 7)
     {
-        alert("PERDEU!")
+        perdeu();
     }
 },1000);
-
 
 const botaoReinicar = document.querySelector("#botaoReiniciar");
 botaoReinicar.addEventListener("click", function(){
     location.reload();
 })
+
+function ganhou(){
+    const titulo = document.createElement("h1");
+    const mensagemConteudo = document.createElement("p");
+
+    titulo.textContent = "PARABÉNS VOCÊ GANHOU";
+    mensagemConteudo.textContent = `A palavra sorteada era "${oPalavraSelecionada.palavra}"`;
+
+    conteudo2.appendChild(titulo);
+    conteudo2.appendChild(mensagemConteudo);
+
+    mensagemFim.style.display = "flex";
+    letrasAcertadas++; //Nao entrar em loop
+}
+
+function perdeu(){
+    const titulo = document.createElement("h1");
+    const mensagemConteudo = document.createElement("p");
+
+    titulo.textContent = "INFELIZMENTE NÃO FOI DESSA VEZ";
+    mensagemConteudo.textContent = `A palavra sorteada era "${oPalavraSelecionada.palavra}"`;
+
+    conteudo2.appendChild(titulo);
+    conteudo2.appendChild(mensagemConteudo);
+
+    mensagemFim.style.display = "flex";
+    letrasErradas++; //Nao entrar em loop
+}
 
 function jogo(){
     acenderTracosCertos();

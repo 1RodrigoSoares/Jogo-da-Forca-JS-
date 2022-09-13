@@ -32,6 +32,7 @@
 .botaoTeclado{
     height: 40px;
     width: 40px;
+    margin: 2px;
 }
 
 .espacoForca{
@@ -93,12 +94,23 @@ body{
 
 .teclado{
     width: 100%;
-    height: 100px;
+    height: 89px;
     border: rgb(128, 0, 0) solid 2px;
     background-color: black;
     grid-row: 2;
     grid-column: 2;
 }
+
+.tecladoFlex{
+    display: grid;
+    grid-template-columns: repeat(15,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+#botaoP{
+    grid-column: 3;
+}
+
 
 .jogo{
     display: grid;
@@ -149,7 +161,7 @@ body{
     font-family: 'Times New Roman', Times, serif;
 }
 
-.conteudo p{
+.conteudo {
     padding: 5px;
     font-size: 1.2rem;
 }
@@ -237,7 +249,15 @@ body{
     .jogo{
         grid-template-rows: 1fr 108px;
     }
-
+    .tecladoFlex{
+        grid-template-columns: repeat(13,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
+    .botaoTeclado{
+        height: 40px;
+        width: 40px;
+        margin: 5px 2px 2px 2px;
+    }
 }
 
 @media screen and (max-width:709px){
@@ -250,9 +270,19 @@ body{
     }
     #tecladoTP{
         width: 500px;
+        height: 78px;
     }
     .mensagem{
         margin-left: 54%;
+    }.botaoTeclado{
+        height: 35px;
+        width: 35px;
+        margin: 2px 2px 2px 2px;
+    }
+    .letra{
+        font-size: 1.3rem;
+        padding: 3px;
+        margin: 0;
     }
 }
 
@@ -287,6 +317,27 @@ body{
         margin-left: 15%;
         margin-top: 80px;
     }
+    .letra{
+        margin: 0;
+        padding: 3px;
+    }
+}
+
+@media screen and (max-width:503px){
+    .letra{
+        font-size: 1.0rem;
+        margin: 0;
+    }
+    .tecladoFlex{
+        grid-template-columns: repeat(13,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
+    .tecladoFlex{
+        grid-template-columns: repeat(9,1fr);
+        grid-template-rows: repeat(3,1fr);
+    }
+
+
 }
 
 @media screen and (max-width:340px){
@@ -316,4 +367,8 @@ body{
         padding: 5px;
         font-size: 1.0rem;
     }
+    .letra{
+            margin: 0;
+            padding: 1px;
+        }
 }

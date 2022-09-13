@@ -1,10 +1,12 @@
 const listaFrutas = [
-    {palavra: "Maçã", dica: "É vermelha e faz croc quando morde"},
+    {palavra: "ABCDEFGHIJFLMN", dica: "É vermelha e faz croc quando morde"},
 ]
 
 const listaProficoes = [
     {palavra: "Médico", dica: "Ajudam aqueles que mais precisam"},
     {palavra: "Bombeiro", dica: "Estão em calendários"},
+    {palavra: "Programador", dica: "As vezes passam a madrugrada trabalhando"},
+    {palavra: "Segurança", dica: "Ajudam a manter a estabilidade do local"}
 ]
 
 const listaFilmes = [
@@ -356,17 +358,37 @@ const botaoDica = document.querySelector("#botaoDica");
 const mensagem = document.querySelector(".mensagem");
 const conteudo = document.querySelector(".conteudo");
 
+
 botaoDica.addEventListener("click", function(){
-    const titulo = document.createElement("h1");
-    const mensagemConteudo = document.createElement("p");
+    if(letrasErradas == 3)
+    {
+        const titulo = document.createElement("h1");
+        const mensagemConteudo = document.createElement("p");
 
-    titulo.textContent = "DICA";
-    mensagemConteudo.textContent = `${oPalavraSelecionada.dica}`;
+        titulo.textContent = "DICA";
+        mensagemConteudo.textContent = `${oPalavraSelecionada.dica}`;
 
-    conteudo.appendChild(titulo);
-    conteudo.appendChild(mensagemConteudo);
+        conteudo.appendChild(titulo);
+        conteudo.appendChild(mensagemConteudo);
 
-    mensagem.style.display = "flex";
+        mensagem.style.display = "flex";
+    }
+    else{
+        const titulo = document.createElement("h1");
+        const mensagemConteudo = document.createElement("p");
+
+        titulo.style.color = "red";
+        titulo.style.textShadow = "-1px -1px 2px black";
+
+        titulo.textContent = "ATENÇÃO";
+        mensagemConteudo.fontsize =  "1.0rem";
+        mensagemConteudo.textContent = "A DICA SÓ É LIBERADA APÓS 3 ERROS e AO USA-LA VOCÊ PERDE UMA VIDA";
+
+        conteudo.appendChild(titulo);
+        conteudo.appendChild(mensagemConteudo);
+
+        mensagem.style.display = "flex";
+    }
 });
 
 const botaoFechar = document.querySelector(".botaoFechar");
@@ -387,6 +409,11 @@ const verificaSeGanhou = setInterval(function(){
     }
 },1000);
 
+
+const botaoReinicar = document.querySelector("#botaoReiniciar");
+botaoReinicar.addEventListener("click", function(){
+    location.reload();
+})
 
 function jogo(){
     acenderTracosCertos();
